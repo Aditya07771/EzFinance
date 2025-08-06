@@ -1,7 +1,7 @@
 <div align="center">
   <br />
     <a href="https://youtu.be/dGHFV_RMGag" target="_blank">
-      <img src="https://i.postimg.cc/tJsYLQcP/test1.jpg" alt="Project Banner">
+      <img src="./landingpage.png" alt="Project Banner">
     </a>
   
   <br />
@@ -74,8 +74,8 @@ Make sure you have the following installed on your machine:
 **Cloning the Repository**
 
 ```bash
-git clone https://github.com/mendsalbert/ai-finance-trackingt.git
-cd ai-finance-tracking
+git clone https://github.com/Aditya07771/EzFinance.git
+cd EzFinance
 ```
 
 **Installation**
