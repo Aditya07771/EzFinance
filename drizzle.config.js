@@ -1,10 +1,13 @@
+import * as dotenv from "dotenv";
+dotenv.config();
+
+console.log("DB URL:", process.env.NEXT_PUBLIC_DATABASE_URL); // ✅ correct placement
+
 export default {
   dialect: "postgresql",
   schema: "./utils/schema.jsx",
   out: "./drizzle",
   dbCredentials: {
-    url: "postgresql://finan-smart_owner:uk3aed9QZotj@ep-wispy-breeze-a5iadk8t.us-east-2.aws.neon.tech/finan-smart?sslmode=require",
-    connectionString:
-      "postgresql://finan-smart_owner:uk3aed9QZotj@ep-wispy-breeze-a5iadk8t.us-east-2.aws.neon.tech/finan-smart?sslmode=require",
+    url: process.env.NEXT_PUBLIC_DATABASE_URL,
   },
 };

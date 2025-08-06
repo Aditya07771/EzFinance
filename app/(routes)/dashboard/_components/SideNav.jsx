@@ -69,10 +69,19 @@ function SideNav() {
         width={160}
         height={100}
         /> */}
-      <div className="flex flex-row items-center">
-        <Image src={"./chart-donut.svg"} alt="logo" width={40} height={25} />
-        <span className="text-blue-800 font-bold text-xl">FinanSmart</span>
-      </div>
+      <div className="flex flex-row items-center cursor-pointer" onClick={() => onNavigate?.("/")}>
+              <div className="bg-primary rounded-lg p-2 mr-3">
+                <TrendingUp className="h-6 w-6 text-primary-foreground" />
+              </div>
+              <span className="text-primary font-bold text-xl">EzFinance</span>
+            </div>
+
+
+      
+
+
+
+
       <div className="mt-5">
         {menuList.map((menu, index) => (
           <Link href={menu.path} key={index}>

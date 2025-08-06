@@ -4,26 +4,49 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useUser, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { TrendingUp, User } from "lucide-react";
+
 function Header() {
   const { user, isSignedIn } = useUser();
+  const router = useRouter();
+  const onNavigate = (path) => router.push(path);
+
   return (
-    <div className="p-5 flex justify-between items-center border shadow-sm">
-      <div className="flex flex-row items-center">
-        <Image src={"/chart-donut.svg"} alt="logo" width={40} height={25} />
-        <span className="text-blue-800  font-bold text-xl">FinanSmart</span>
+    <div className="p-5 flex justify-between items-center border-b bg-background shadow-sm">
+      <div className="flex flex-row items-center cursor-pointer" onClick={() => onNavigate?.("/")}>
+        <div className="bg-primary rounded-lg p-2 mr-3">
+          <TrendingUp className="h-6 w-6 text-primary-foreground" />
+        </div>
+        <span className="text-primary font-bold text-xl">EzFinance</span>
       </div>
+      
       {isSignedIn ? (
-        <UserButton />
+        <div className="flex items-center gap-3">
+          <Button 
+            variant="ghost" 
+            size="icon"
+            className="rounded-full"
+            onClick={() => onNavigate?.("/dashboard")}
+          >
+            <User className="h-5 w-5" />
+          </Button>
+        </div>
       ) : (
-        <div className="flex gap-3  items-center">
-          <Link href={"/dashboard"}>
-            <Button variant="outline" className="rounded-full">
-              Dashboard
-            </Button>
-          </Link>
-          <Link href={"/sign-in"}>
-            <Button className="rounded-full">Get Started</Button>
-          </Link>
+        <div className="flex gap-3 items-center">
+          <Button 
+            variant="outline" 
+            className="rounded-full"
+            onClick={() => onNavigate?.("/dashboard")}
+          >
+            Dashboard
+          </Button>
+          <Button 
+            className="rounded-full bg-primary hover:bg-primary/90"
+            onClick={() => onNavigate?.("/dashboard")}
+          >
+            Get Started
+          </Button>
         </div>
       )}
     </div>
